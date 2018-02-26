@@ -5,13 +5,14 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     loadChildren: './dashboard/dashboard.module#DashboardModule'
   },
   {
     path: 'login',
     component: LoginComponent
-  }
+  },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({

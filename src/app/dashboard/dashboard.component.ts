@@ -11,22 +11,22 @@ export class DashboardComponent {
     {
       icon: 'globe',
       label: 'Agents',
-      url: '/agents',
+      url: '/admin/agents',
     },
     {
       icon: 'life-ring',
       label: 'Save orders',
-      url: '/save-orders'
+      url: '/admin/save-orders'
     },
     {
       icon: 'calendar',
       label: 'Plannings',
-      url: '/plannings'
+      url: '/admin/plannings'
     },
     {
       icon: 'cog',
       label: 'Settings',
-      url: '/settings'
+      url: '/admin/settings'
     }
   ]
 
