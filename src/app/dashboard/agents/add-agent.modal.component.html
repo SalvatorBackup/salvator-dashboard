@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add agent</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p *ngIf='error !== "" '>
+    <ngb-alert [dismissible]="true">
+      <strong>Warning!</strong> {{error}}
+    </ngb-alert>
+  </p>
+  <form>
+    <div class="form-group">
+      <label for="agent-name">Name</label>
+      <input type="text" class="form-control" name="agent-name" [(ngModel)]="formContent.name">
+    </div>
+    <div class="form-group">
+      <label for="agent-endpoint">Endpoint</label>
+      <input type="text" class="form-control" name="agent-endpoint" [(ngModel)]="formContent.endpoint">
+    </div>
+    <div class="form-group">
+      <label for="agent-token">Token</label>
+      <input type="text" class="form-control" name="agent-token" [(ngModel)]="formContent.token">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" (click)="addAgent()">Add</button>
+</div>

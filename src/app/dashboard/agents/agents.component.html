@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Agents</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <button class="btn btn-primary" (click)="openAddAgentModal()">Add</button>
+  </div>
+</div>
+<div class="my-4">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-striped table-bordered text-center">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Endpoint</th>
+            <th scope="col">Token</th>
+            <th scope="col">Last contact</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let agent of agents">
+            <th class="align-middle" scope="row">{{agent.id}}</th>
+            <td class="align-middle">{{agent.name}}</td>
+            <td class="align-middle">{{agent.endpoint}}</td>
+            <td class="align-middle">{{agent.token}}</td>
+            <td class="align-middle">{{agent.lastContact | amTimeAgo}}</td>
+            <td>
+              <button class="btn btn-danger" (click)="blockAgent(agent.id)">Block</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

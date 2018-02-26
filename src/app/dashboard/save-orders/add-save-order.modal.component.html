@@ -1,0 +1,34 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add save order</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p *ngIf='error !== "" '>
+    <ngb-alert [dismissible]="true">
+      <strong>Warning!</strong> {{error}}
+    </ngb-alert>
+  </p>
+  <form>
+    <div class="form-group">
+      <label for="agent-name">Name</label>
+      <input type="text" class="form-control" name="agent-name" [(ngModel)]="formContent.name">
+    </div>
+    <div class="form-group">
+      <label for="agent-endpoint">Includes</label>
+      <input type="text" class="form-control" name="agent-includes" [(ngModel)]="formContent.includes">
+    </div>
+    <div class="form-group">
+      <label for="agent-token">Excludes</label>
+      <input type="text" class="form-control" name="agent-excludes" [(ngModel)]="formContent.excludes">
+    </div>
+    <div class="form-group">
+      <label for="agent-token">Interval</label>
+      <input type="text" class="form-control" name="agent-interval" [(ngModel)]="formContent.interval">
+    </div>
+  </form>
+</div>
+<div class="modal-footer flex-end">
+  <button class="btn btn-primary" (click)="addSaveOrder()">Add</button>
+</div>

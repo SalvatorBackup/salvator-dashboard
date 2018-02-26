@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Settings</h1>
+</div>
+<div class="col-4">
+  <form>
+    <div class="form-group" *ngFor="let settingsKey of settingsKeys">
+      <label for="settings-{{settingsKey}}">{{settingsKey}}</label>
+      <input type="text" class="form-control" id="settings-{{settingsKey}}" value="{{settings[settingsKey]}}" disabled>
+    </div>
+  </form>
+</div>

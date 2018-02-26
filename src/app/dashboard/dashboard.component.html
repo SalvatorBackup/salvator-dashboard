@@ -1,0 +1,29 @@
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Salvator Dashboard</a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <!--<a class="nav-link" href="#">Sign out</a>-->
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item" *ngFor="let menu of menus;index as idx">
+            <a class="nav-link" [class.active]="idx === activeMenu" href="#" (click)="navigate($event, idx)">
+              <fa name="{{menu.icon}}"></fa>
+              {{menu.label}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
