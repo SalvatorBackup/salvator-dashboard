@@ -52,7 +52,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/agents',
+        redirectTo: '/admin/agents',
         pathMatch: 'full'
       }
     ]

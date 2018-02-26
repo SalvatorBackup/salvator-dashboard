@@ -16,7 +16,7 @@ export class LoginComponent {
     event.preventDefault()
     localStorage.setItem('salvator-pass', JSON.stringify(this.password))
     setTimeout(() => {
-      this.router.navigateByUrl('/')
+      this.router.navigateByUrl('/admin')
     }, 0)
     return false;
   }
