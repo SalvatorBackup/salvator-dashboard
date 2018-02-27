@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 import { AgentsService } from '../../datas/agents/agents.service'
 import { AddAgentModalComponent } from './add-agent.modal.component';
@@ -15,6 +16,7 @@ export class AgentsComponent implements OnInit {
     private route: ActivatedRoute,
     private agentsService: AgentsService,
     private router: Router,
+    private toaster: ToastrService
   ) { }
 
   agents = []
@@ -31,12 +33,10 @@ export class AgentsComponent implements OnInit {
 
   blockAgent(id) {
     this.agentsService.deleteAgent(id).subscribe(res => {
-      console.log('yes')
+      this.router.navigate(['/admin/agents'])
     }, err => {
-      console.log(err)
-    }, () => {
-      console.log('nav')
-      this.router.navigate(['/agents'])
+      console.log('yolooooooooo')
+      this.toaster.error('Failed...', 'Failed to block agent')
     })
   }
 }

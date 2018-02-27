@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 import { AddSaveOrderModalComponent } from './add-save-order.modal.component';
 import { SaveOrdersService } from '../../datas/save-orders/save-orders.service';
@@ -16,7 +16,8 @@ export class SaveOrdersComponent implements OnInit {
     private modalService: NgbModal,
     private route: ActivatedRoute,
     private router: Router,
-    private saveOrdersService: SaveOrdersService
+    private saveOrdersService: SaveOrdersService,
+    private toaster: ToastrService,
   ) { }
 
   saveOrders = []
@@ -33,7 +34,9 @@ export class SaveOrdersComponent implements OnInit {
 
   removeSaveOrder(id) {
     this.saveOrdersService.deleteSaveOrder(id).subscribe(() => {
-      this.router.navigate(['/save-orders'])
+      this.router.navigate(['/admin/save-orders'])
+    }, err => {
+      this.toaster.error('Failed...', 'Failed to delete save order')
     })
   }
 }

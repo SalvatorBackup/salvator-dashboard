@@ -27,7 +27,7 @@ export class AddSaveOrderModalComponent {
 
   addSaveOrder() {
     this.saveOrdersService.addSaveOrder(this.formContent).subscribe(res => {
-      this.router.navigate(['/save-orders'])
+      this.router.navigate(['/admin/save-orders'])
     }, err => {
       this.error = err.error
     }, () => this.activeModal.close())

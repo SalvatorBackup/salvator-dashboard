@@ -25,7 +25,7 @@ export class AddAgentModalComponent {
 
   addAgent() {
     this.agentsService.addAgent(this.formContent).subscribe(res => {
-      this.router.navigate(['/agents'])
+      this.router.navigate(['/admin/agents'])
     }, err => {
       this.error = err.error
     }, () => this.activeModal.close())

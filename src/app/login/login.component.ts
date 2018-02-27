@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+import { LoginService } from '../datas/login/login.service';
 
 @Component({
   selector: 'login',
@@ -10,14 +13,21 @@ export class LoginComponent {
 
   password: string = '';
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+    private toaster: ToastrService
+  ) { }
 
   login(event) {
     event.preventDefault()
-    localStorage.setItem('salvator-pass', JSON.stringify(this.password))
-    setTimeout(() => {
+
+    this.loginService.login(this.password).subscribe(() => {
       this.router.navigateByUrl('/admin')
-    }, 0)
+    }, err => {
+      this.toaster.error('Failed...', 'Login failed')
+    })
+
     return false;
   }
 }

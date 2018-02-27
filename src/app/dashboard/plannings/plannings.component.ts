@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { PlanningsService } from '../../datas/plannings/plannings.service';
 
@@ -18,7 +19,8 @@ export class PlanningsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private planningsService: PlanningsService
+    private planningsService: PlanningsService,
+    private toaster: ToastrService
   ) { }
 
   ngOnInit() {
@@ -31,13 +33,17 @@ export class PlanningsComponent implements OnInit {
 
   addPlan() {
     this.planningsService.addPlanning(this.formContent).subscribe(res => {
-      this.router.navigate(['/plannings'])
+      this.router.navigate(['/admin/plannings'])
+    }, err => {
+      this.toaster.error('Failed...', 'Failed to add planification')
     })
   }
 
   deletePlan(id) {
-    this.planningsService.removePlanning(id).subscribe(() => { }, () => { }, () => {
-      this.router.navigate(['/plannings'])
+    this.planningsService.removePlanning(id).subscribe(() => {
+      this.router.navigate(['/admin/plannings'])
+    }, () => {
+      this.toaster.error('Failed...', 'Failed to remove planification')
     })
   }
 }
