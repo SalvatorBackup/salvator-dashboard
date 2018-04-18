@@ -14,6 +14,8 @@ import { PlanningsComponent } from './plannings/plannings.component';
 import { AddAgentModalComponent } from './agents/add-agent.modal.component';
 import { AddSaveOrderModalComponent } from './save-orders/add-save-order.modal.component';
 import { SettingsComponent } from './settings/settings.component';
+import { StorageComponent } from './storage/storage.component';
+import { ConfigureStorageModalComponent } from './storage/configure-storage.modal.component';
 
 const COMPONENTS = [
   DashboardComponent,
@@ -22,8 +24,10 @@ const COMPONENTS = [
   PlanningsComponent,
   AddAgentModalComponent,
   AddSaveOrderModalComponent,
-  SettingsComponent
-]
+  SettingsComponent,
+  StorageComponent,
+  ConfigureStorageModalComponent,
+];
 
 @NgModule({
   imports: [
@@ -35,6 +39,6 @@ const COMPONENTS = [
     MomentModule
   ],
   declarations: [...COMPONENTS],
-  entryComponents: [AddAgentModalComponent, AddSaveOrderModalComponent]
+  entryComponents: [AddAgentModalComponent, AddSaveOrderModalComponent, ConfigureStorageModalComponent]
 })
 export class DashboardModule { }

@@ -24,6 +24,11 @@ export class DashboardComponent {
       url: '/admin/plannings'
     },
     {
+      icon: 'archive',
+      label: 'Storage',
+      url: '/admin/storage'
+    },
+    {
       icon: 'cog',
       label: 'Settings',
       url: '/admin/settings'

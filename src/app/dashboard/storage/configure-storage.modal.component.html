@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <h4 class="modal-title">Configure driver: {{_driver.name}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" *ngIf="driver !== null">
+  <form>
+    <div class="form-group" *ngFor="let configPartsKey of configSchemaKeys">
+      <label for="storage-{{configPartsKey}}">{{configPartsKey.charAt(0).toUpperCase() + configPartsKey.slice(1)}}</label>
+      <input
+        [(ngModel)]="formContent[configPartsKey]"
+        [type]="_driver.configSchema[configPartsKey]"
+        class="form-control"
+        name="storage-{{configPartsKey}}"
+      >
+    </div>
+  </form>
+</div>
+<div class="modal-footer flex-end">
+  <button class="btn btn-primary" (click)="saveConfig()">Save</button>
+</div>

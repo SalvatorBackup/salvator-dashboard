@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
-import { API_URL } from '../constants';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class LoginService {
@@ -10,6 +10,6 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(password): Observable<Object> {
-    return this.http.post(`${API_URL}/login`, { password })
+    return this.http.post(`${environment.apiUrl}/login`, { password })
   }
 }

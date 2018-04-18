@@ -11,8 +11,9 @@ import { PlanningsResolver } from './plannings/plannings.resolver.service';
 import { SettingsService } from './settings/settings.service';
 import { SettingsResolver } from './settings/settings.resolver.service';
 import { AuthInterceptor } from './auth-interceptor';
-
 import { LoginService } from './login/login.service';
+import { StorageService } from './storage/storage.service';
+import { StorageResolver } from './storage/storage.resolver.service';
 
 const SERVICES = [
   AgentsService,
@@ -23,7 +24,9 @@ const SERVICES = [
   PlanningsResolver,
   SettingsService,
   SettingsResolver,
-  LoginService
+  LoginService,
+  StorageService,
+  StorageResolver,
 ]
 
 @NgModule({

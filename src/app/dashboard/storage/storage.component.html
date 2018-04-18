@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <h1 class="h2">Storage</h1>
+</div>
+<div class="row">
+  <div class="col-3 mb-4">
+    <div class="card text-center p-3 h-100">
+      <div class="ftp-driver-image">
+      </div>
+      <h5 class="card-title mt-4 mb-0">FTP Driver</h5>
+      <hr class="mt-0">
+      <p>Send your backups on a remote FTP server.</p>
+      <button
+        (click)="configModal('ftp')"
+        class="btn btn-outline-primary mb-2"
+      >Configure</button>
+      <button
+        [disabled]="storageState.availableDrivers.ftp.config == null"
+        class="btn btn-success"
+        [class.btn-success]="storageState.activeDriver !== 'ftp'"
+        [class.btn-danger]="storageState.activeDriver === 'ftp'"
+        (click)="switchStorage('ftp')"
+      >{{storageState.activeDriver === 'ftp' ? 'Disable' : 'Enable'}}</button>
+    </div>
+  </div>
+
+  <div class="col-3 mb-4">
+    <div class="card text-center p-3 h-100">
+      <div class="s3-driver-image">
+      </div>
+      <h5 class="card-title mt-4 mb-0">Amazon S3 Driver</h5>
+      <hr class="mt-0">
+      <p style="flex:1">Send your files to an Amazon S3 bucket.</p>
+      <button
+        (click)="configModal('s3')"
+        class="btn btn-outline-primary mb-2"
+      >Configure</button>
+      <button
+        [disabled]="storageState.availableDrivers.s3.config == null"
+        class="btn btn-success"
+        [class.btn-success]="storageState.activeDriver !== 's3'"
+        [class.btn-danger]="storageState.activeDriver === 's3'"
+        (click)="switchStorage('s3')"
+      >{{storageState.activeDriver === 's3' ? 'Disable' : 'Enable'}}</button>
+    </div>
+  </div>
+
+  <div class="col-3 mb-4">
+    <div class="card text-center p-3 h-100">
+      <div class="spaces-driver-image">
+      </div>
+      <h5 class="card-title mt-4 mb-0">DigitalOcean Spaces</h5>
+      <hr class="mt-0">
+      <p>Send your backups on a DigitalOcean Space.</p>
+      <button
+        (click)="configModal('spaces')"
+        class="btn btn-outline-primary mb-2"
+      >Configure</button>
+      <button
+        [disabled]="storageState.availableDrivers.spaces.config == null"
+        class="btn btn-success"
+        [class.btn-success]="storageState.activeDriver !== 'spaces'"
+        [class.btn-danger]="storageState.activeDriver === 'spaces'"
+        (click)="switchStorage('spaces')"
+      >{{storageState.activeDriver === 'spaces' ? 'Disable' : 'Enable'}}</button>
+    </div>
+  </div>
+
+  <div class="col-3 mb-4">
+    <div class="card text-center p-3 h-100">
+      <h5 class="card-title mt-4 mb-0">Local Driver</h5>
+      <hr class="mt-0">
+      <p style="flex:1">Keep your backups on the Salvator server host. <b>You shouldn't use this driver for production.</b></p>
+      <button
+        (click)="configModal('local')"
+        class="btn btn-outline-primary mb-2"
+      >Configure</button>
+      <button
+        [disabled]="storageState.availableDrivers.local.config == null"
+        class="btn btn-success"
+        [class.btn-success]="storageState.activeDriver !== 'local'"
+        [class.btn-danger]="storageState.activeDriver === 'local'"
+        (click)="switchStorage('local')"
+      >{{storageState.activeDriver === 'local' ? 'Disable' : 'Enable'}}</button>
+    </div>
+  </div>
+</div>

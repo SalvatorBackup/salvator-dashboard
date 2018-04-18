@@ -1,0 +1,19 @@
+.driver-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 80px;
+}
+
+.ftp-driver-image {
+  @extend .driver-image;
+  background-image: url('/assets/ftp-driver.png');
+}
+.s3-driver-image {
+  @extend .driver-image;
+  background-image: url('/assets/awss3-driver.png');
+}
+.spaces-driver-image {
+  @extend .driver-image;
+  background-image: url('/assets/spaces-driver.png');
+}

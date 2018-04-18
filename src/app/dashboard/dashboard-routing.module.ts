@@ -10,6 +10,8 @@ import { SaveOrdersResolver } from '../datas/save-orders/save-orders.resolver.se
 import { PlanningsResolver } from '../datas/plannings/plannings.resolver.service';
 import { SettingsResolver } from '../datas/settings/settings.resolver.service'
 import { SettingsComponent } from './settings/settings.component';
+import { StorageComponent } from './storage/storage.component';
+import { StorageResolver } from '../datas/storage/storage.resolver.service';
 
 const routes: Routes = [
   {
@@ -41,6 +43,14 @@ const routes: Routes = [
           plannings: PlanningsResolver
         },
         runGuardsAndResolvers: 'always'
+      },
+      {
+        path: 'storage',
+        component: StorageComponent,
+        runGuardsAndResolvers: 'always',
+        resolve: {
+          storage: StorageResolver
+        }
       },
       {
         path: 'settings',
